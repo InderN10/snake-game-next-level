@@ -48,13 +48,11 @@ snakeTailLeft.src = 'images/tail_up.png';
 const snakeTailRight = new Image();
 snakeTailRight.src = 'images/tail_up.png';
 
-// Load apple image for the food
 const appleImage = new Image();
-appleImage.src = 'images/apple.png'; // Ensure this is the correct path
+appleImage.src = 'images/apple.png'; 
 
-// Image loading check
 let imagesLoaded = 0;
-const totalImages = 9; // 8 snake images + 1 apple image
+const totalImages = 9; 
 
 function checkImagesLoaded() {
     imagesLoaded++;
@@ -72,34 +70,30 @@ snakeTailUp.onload = checkImagesLoaded;
 snakeTailDown.onload = checkImagesLoaded;
 snakeTailLeft.onload = checkImagesLoaded;
 snakeTailRight.onload = checkImagesLoaded;
-appleImage.onload = checkImagesLoaded; // Ensure the apple image is loaded
+appleImage.onload = checkImagesLoaded; 
 
-// Initialize sounds
+
 let eatFoodSound = new Audio('assets/sound/eatsound.mp3');
 let gameOverSound = new Audio('assets/sound/gameover2.mp3');
 let moveSnakeSound = new Audio('assets/sound/moveSnake.mp3');
-let backgroundMusic = new Audio('assets/sound/backmusic.mp3');
+let backgroundMusic = new Audio('assets/sound/phonk2.mp3');
 
-// Set background music to loop
 backgroundMusic.loop = true;
 
-// Play background music when the game starts
 function playBackgroundMusic() {
     backgroundMusic.play();
 }
 
-// Stop background music when the game ends
 function stopBackgroundMusic() {
     backgroundMusic.pause();
-    backgroundMusic.currentTime = 0; // Reset the music to the beginning
+    backgroundMusic.currentTime = 0;
 }
 
 window.addEventListener("keydown", changeDirection);
 reset.addEventListener("click", resetGame);
 
-// Start the game when images are loaded
 function gameStart() {
-    running = true;
+   running = true;
     scoreText.textContent = `Score: ${score}`;
     createFood();
     drawFood();
